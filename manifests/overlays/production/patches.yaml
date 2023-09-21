@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  namespace: misskey
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: web
+          image: misskey/misskey:13.14.2

@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  namespace: misskey
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: misskey/misskey:latest
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /health # Replace with your web service health endpoint
+              port: 3000
+          volumeMounts:
+            - name: misskey-files
+              mountPath: /misskey/files
+            - name: misskey-config
+              mountPath: /misskey/.config
+      volumes:
+        - name: misskey-config
+          configMap:
+            name: misskey-web-config
+        - name: misskey-files
+          persistentVolumeClaim:
+            claimName: misskey-files-pvc
+      securityContext:
+        fsGroup: 991
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: misskey-files-pvc
+  namespace: misskey
+spec:
+  storageClassName: satahdd-replicated-cephfs-sc-01
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 32Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: misskey
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

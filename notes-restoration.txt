@@ -1,0 +1,7 @@
+CREATE DATABASE misskey;
+CREATE USER "misskey-backend-user" WITH PASSWORD 'misskey-backend-user';
+GRANT ALL PRIVILEGES ON DATABASE misskey TO "misskey-backend-user";
+
+\c misskey;
+
+psql -U misskey-backend-user -d misskey -f /var/lib/postgresql/data/mdd.sql

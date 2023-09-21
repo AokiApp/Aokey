@@ -1,0 +1,12 @@
+namespace: misskey
+
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: misskey-web-config
+    files:
+      - default.yml=cfg/web.yml
+
+patches:
+  - path: patches.yaml
