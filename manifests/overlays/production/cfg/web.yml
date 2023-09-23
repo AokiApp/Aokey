@@ -45,28 +45,21 @@ db:
   pass: misskey-backend-user
 
   # Whether disable Caching queries
-  #disableCache: true
+  disableCache: true
 
   # Extra Connection options
   #extra:
   #  ssl: true
 
-dbReplications: false
+dbReplications: true
 
 # You can configure any number of replicas here
-#dbSlaves:
-#  -
-#    host:
-#    port:
-#    db:
-#    user:
-#    pass:
-#  -
-#    host:
-#    port:
-#    db:
-#    user:
-#    pass:
+dbSlaves:
+  - host: pg-cluster-ro.pg-cluster.svc.cluster.local
+    port: 5432
+    db: misskey
+    user: misskey-backend-user
+    pass: misskey-backend-user
 
 #   ┌─────────────────────┐
 #───┘ Redis configuration └─────────────────────────────────────
