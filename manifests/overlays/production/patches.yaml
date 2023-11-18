@@ -4,9 +4,9 @@ metadata:
   name: web-deployment
   namespace: misskey
 spec:
-  replicas: 1
+  replicas: 2
   template:
     spec:
       containers:
         - name: web
-          image: misskey/misskey:2023.9.3
+          image: misskey/misskey:2023.11.0
