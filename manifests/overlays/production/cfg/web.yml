@@ -51,15 +51,15 @@ db:
   #extra:
   #  ssl: true
 
-dbReplications: true
+dbReplications: false
 
 # You can configure any number of replicas here
-dbSlaves:
-  - host: pg-cluster-ro.pg-cluster.svc.cluster.local
-    port: 5432
-    db: misskey
-    user: misskey-backend-user
-    pass: misskey-backend-user
+# dbSlaves:
+#   - host: pg-cluster-ro.pg-cluster.svc.cluster.local
+#     port: 5432
+#     db: misskey
+#     user: misskey-backend-user
+#     pass: misskey-backend-user
 
 #   ┌─────────────────────┐
 #───┘ Redis configuration └─────────────────────────────────────
