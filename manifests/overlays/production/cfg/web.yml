@@ -51,7 +51,7 @@ db:
   #extra:
   #  ssl: true
 
-dbReplications: true
+dbReplications: false
 
 # You can configure any number of replicas here
 dbSlaves:
