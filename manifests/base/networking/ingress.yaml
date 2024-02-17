@@ -18,8 +18,11 @@ spec:
                 name: web-service
                 port:
                   number: 3000
+    - host: proxy.key.aoki.app
+      http:
+        paths:
           - pathType: Prefix
-            path: "/proxy"
+            path: "/"
             backend:
               service:
                 name: media-proxy-service
