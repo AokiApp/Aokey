@@ -22,7 +22,7 @@ spec:
             - containerPort: 3000
           volumeMounts:
             - name: media-proxy-config
-              mountPath: /app/config.js
+              mountPath: /usr/src/app/config.js
               subPath: config.js
       volumes:
         - name: media-proxy-config
