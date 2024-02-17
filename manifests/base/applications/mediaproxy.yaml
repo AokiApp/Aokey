@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: media-proxy
-          image: ghcr.io/AokiApp/Aokey/mediaproxy:latest
+          image: ghcr.io/aokiapp/aokey/mediaproxy:latest
           ports:
             - containerPort: 3000
           volumeMounts:

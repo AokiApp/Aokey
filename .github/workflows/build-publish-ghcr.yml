@@ -45,8 +45,8 @@ jobs:
           # platforms: linux/amd64,linux/arm64
           platforms: linux/amd64
           tags: |
-            ghcr.io/${{ github.repository }}/${{ matrix.name }}:${{ github.sha }}
-            ghcr.io/${{ github.repository }}/${{ matrix.name }}:latest
+            ghcr.io/aokiapp/aokey/${{ matrix.name }}:${{ github.sha }}
+            ghcr.io/aokiapp/aokey/${{ matrix.name }}:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-1,mode=max
       - name: Move cache
