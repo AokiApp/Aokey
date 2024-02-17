@@ -13,6 +13,8 @@ spec:
       labels:
         app: media-proxy
     spec:
+      imagePullSecrets:
+        - name: github-registry-secret
       containers:
         - name: media-proxy
           image: ghcr.io/aokiapp/aokey/mediaproxy:latest
