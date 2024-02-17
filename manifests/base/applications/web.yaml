@@ -36,6 +36,10 @@ spec:
             claimName: misskey-files-pvc
       securityContext:
         fsGroup: 991
+      hostAliases:
+        - ip: "10.0.1.4" # which is the local IP of the physical machine that runs Ingress Controller
+          hostnames:
+            - "key.aoki.app"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
