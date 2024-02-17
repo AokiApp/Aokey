@@ -3,4 +3,5 @@ namespace: misskey
 resources:
   - applications/redis.yaml
   - applications/web.yaml
+  - applications/mediaproxy.yaml
   - networking/ingress.yaml

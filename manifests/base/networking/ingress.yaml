@@ -18,6 +18,13 @@ spec:
                 name: web-service
                 port:
                   number: 3000
+          - pathType: Prefix
+            path: "/proxy"
+            backend:
+              service:
+                name: media-proxy-service
+                port:
+                  number: 3000
 
   tls:
     - hosts:

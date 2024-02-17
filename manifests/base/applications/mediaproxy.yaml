@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: media-proxy-deployment
+  namespace: misskey
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: media-proxy
+  template:
+    metadata:
+      labels:
+        app: media-proxy
+    spec:
+      containers:
+        - name: media-proxy
+          image: ghcr.io/AokiApp/Aokey/mediaproxy:latest
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: media-proxy-config
+              mountPath: /app/config.js
+              subPath: config.js
+      volumes:
+        - name: media-proxy-config
+          configMap:
+            name: media-proxy-configmap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: media-proxy-service
+  namespace: misskey
+spec:
+  selector:
+    app: media-proxy
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

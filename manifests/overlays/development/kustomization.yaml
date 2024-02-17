@@ -10,7 +10,9 @@ configMapGenerator:
   - name: misskey-web-config
     files:
       - default.yml=cfg/web.yml
+  - name: media-proxy-configmap
+    files:
+      - config.js=cfg/config.js
 
 patches:
-  - path: applications/psql.yaml
   - path: applications/redis.yaml
