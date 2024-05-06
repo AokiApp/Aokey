@@ -9,7 +9,7 @@ export default {
 
   // プライベートネットワークでも許可するIP CIDR（default.ymlと同じ）
 
-  allowedPrivateNetworks: [],
+  allowedPrivateNetworks: ["10.0.1.4/32"],
 
   // ダウンロードするファイルの最大サイズ (bytes)
 
