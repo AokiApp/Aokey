@@ -12,4 +12,5 @@ configMapGenerator:
       - config.js=cfg/config.js
 
 patches:
-  - path: patches.yaml
+  - path: patches/web.yaml
+  - path: patches/media-proxy.yaml
