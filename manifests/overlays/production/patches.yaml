@@ -9,8 +9,24 @@ spec:
     spec:
       containers:
         - name: web
-          image: misskey/misskey:2024.2.0
+          image: misskey/misskey:2024.3.1
       hostAliases:
-        - ip: "10.0.1.4" # which is the local IP of the physical machine that runs Ingress Controller
+        - ip: "10.0.1.4" # ad hoc fix: it's the one of the physical nodes where the Ingress Controller is placed
+          hostnames:
+            - "key.aoki.app"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: media-proxy-deployment
+  namespace: misskey
+spec:
+  template:
+    metadata:
+      labels:
+        app: media-proxy
+    spec:
+      hostAliases:
+        - ip: "10.0.1.4"
           hostnames:
             - "key.aoki.app"
