@@ -7,9 +7,10 @@ spec:
   replicas: 1
   template:
     spec:
+      serviceAccountName: default
       containers:
         - name: web
-          image: misskey/misskey:2024.3.1
+          image: misskey/misskey:2024.8.0
       hostAliases:
         - ip: "10.0.1.4" # ad hoc fix: it's the one of the physical nodes where the Ingress Controller is placed
           hostnames:
