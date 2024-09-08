@@ -4,8 +4,7 @@ metadata:
   name: web-ingress
   namespace: misskey
   annotations:
-    traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.tls.certresolver: "letsencrypt"
+    cert-manager.io/cluster-issuer: letsencrypt-cloudflare
 spec:
   rules:
     - host: key.aoki.app
@@ -32,3 +31,4 @@ spec:
   tls:
     - hosts:
         - "*.aoki.app"
+      secretName: service-tls
