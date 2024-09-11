@@ -4,6 +4,7 @@ metadata:
   name: media-proxy-deployment
   namespace: misskey
 spec:
+  replicas: 1
   template:
     metadata:
       labels:
