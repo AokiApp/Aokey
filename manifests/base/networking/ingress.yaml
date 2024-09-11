@@ -32,3 +32,6 @@ spec:
     - hosts:
         - "*.aoki.app"
       secretName: service-tls
+    - hosts:
+        - "proxy.key.aoki.app"
+      secretName: media-proxy-tls
