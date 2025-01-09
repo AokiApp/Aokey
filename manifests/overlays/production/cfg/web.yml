@@ -51,7 +51,8 @@ db:
   #extra:
   #  ssl: true
 
-dbReplications: true
+# https://github.com/misskey-dev/misskey/issues/13921#issuecomment-2344350325
+dbReplications: false
 
 # You can configure any number of replicas here
 dbSlaves:
