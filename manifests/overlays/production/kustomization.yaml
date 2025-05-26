@@ -9,7 +9,7 @@ configMapGenerator:
       - default.yml=cfg/web.yml
   - name: media-proxy-configmap
     files:
-      - config.js=cfg/config.js
+      - config.json=cfg/config.json
 
 patches:
   - path: patches/web.yaml

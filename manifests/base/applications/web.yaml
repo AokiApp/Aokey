@@ -16,7 +16,7 @@ type: Opaque
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
+  name: web
   namespace: misskey
 spec:
   replicas: 3
