@@ -5,7 +5,7 @@ port: 3000
 #───┘ PostgreSQL configuration └────────────────────────────────
 
 db:
-  host: pg-pooler-rw.pg-cluster.svc.cluster.local
+  host: pg-cluster-rw.pg-cluster.svc.cluster.local
   port: 5432
   db: misskey
 
@@ -18,7 +18,7 @@ db:
 dbReplications: false
 
 dbSlaves:
-  - host: pg-pooler-ro.pg-cluster.svc.cluster.local
+  - host: pg-cluster-ro.pg-cluster.svc.cluster.local
     port: 5432
     db: misskey
     user: misskey-backend-user
