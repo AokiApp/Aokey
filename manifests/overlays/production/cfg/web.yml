@@ -7,22 +7,11 @@ port: 3000
 db:
   host: pg-cluster-rw.pg-cluster.svc.cluster.local
   port: 5432
-  db: misskey
-
-  user: misskey-backend-user
-  pass: misskey-backend-user # replaced by secret
 
   disableCache: true
 
 # https://github.com/misskey-dev/misskey/issues/13921#issuecomment-2344350325
 dbReplications: false
-
-dbSlaves:
-  - host: pg-cluster-ro.pg-cluster.svc.cluster.local
-    port: 5432
-    db: misskey
-    user: misskey-backend-user
-    pass: misskey-backend-user
 
 redis:
   host: redis-service.misskey.svc.cluster.local
