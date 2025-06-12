@@ -41,8 +41,6 @@ spec:
             - secretRef:
                 name: misskey-web-secret
           volumeMounts:
-            - name: misskey-files
-              mountPath: /misskey/files
             - name: misskey-config
               mountPath: /misskey/.config
       volumes:
